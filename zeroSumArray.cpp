@@ -29,7 +29,8 @@ bool zeroSumArray(int arr[], int size)
 int main()
 {
 	
-	int arr[] = { 4, 5, 6, -1, 4, -8 };
+	int arr[] = { 4, 5, 6, -1, 4, -8 }; // no subarray, which is kind of strange...
+	// int arr[] = { 4, 4, -8, 10, -5, -2, -3 }; -- has sub array(s)
 	int size = sizeof(arr)/sizeof(arr[0]);
 
 	zeroSumArray(arr, size) ? cout << "Subarray(s) exist" << endl :
