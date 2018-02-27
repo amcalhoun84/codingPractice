@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int productSubArray(int a[], int n)
+{
+	int max_end = 0, min_end = 0, max_found = 0;
+	
+	for(int i = 0; i < n; i++)
+	{
+  
+	  int temp = max_end;
+		max_end = max(a[i], max(a[i] * max_end, a[i] * min_end));
+		// here I went brainless and put max for the outer part of the operation, kept getting 8 and wondering why...
+    min_end = min(a[i], min(a[i] * temp, a[i] * min_end));
+
+		max_found = max(max_found, max_end);
+	}
+
+	return max_found;
+
+}
+
+int main() 
+{
+	int a[] = { -6, 4, -5, 8, -10, 0, 8 };
+	int n = sizeof(a)/sizeof(a[0]);
+	
+	cout << "Maxium product of a sub array is:" << productSubArray(a, n) << endl;
+	
+	return 0;
+}
+
+
